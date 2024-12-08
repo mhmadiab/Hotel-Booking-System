@@ -1,4 +1,4 @@
-const Room = require("../models/roomModal")
+const {Room} = require("../models/index")
 
 
 const getRooms = async(req, res, next)=>{
