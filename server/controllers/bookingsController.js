@@ -1,4 +1,6 @@
-const Booking = require("../models/bookingsModal")
+// const Booking = require("../models/bookingsModal")
+
+const {Booking} = require("../models/index")
 
 
 const getBookings = async(req, res, next) => {
