@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server/server.js"
+    "server": "nodemon server/server.js",
+    "admin": "cross-env PORT=3001 npm run start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run admin\""
   },
   "keywords": [],
   "author": "",
@@ -18,5 +20,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.2",
     "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3"
   }
 }
