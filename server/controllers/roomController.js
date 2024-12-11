@@ -23,7 +23,8 @@ const createRoom = async(req, res, next)=>{
             res.status(400)
             throw new Error("room not created")
         }
-        return res.status(201).json({message: "room created", room})
+        const rooms = await Room.find()
+        return res.status(201).json({message: "room created", rooms})
     } catch (error) {
         next(error)
     }

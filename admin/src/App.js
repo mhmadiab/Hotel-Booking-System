@@ -7,6 +7,9 @@ import Login from './pages/Login/Login.jsx'
 import Register from './pages/Register/Register.jsx'
 import Header from './components/Header/Header.jsx'
 import Dashboard from './pages/Dashboard/Dashboard.js'
+import CreateRoom from './pages/CreateRoom.js'
+import Rooms from './pages/Rooms/Rooms.js'
+import Room from './pages/Room/Room.jsx'
 
 
 const App = () => {
@@ -19,6 +22,9 @@ const App = () => {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/dashboard' element={<Dashboard />}/>
+          <Route path='/rooms/create' element={<CreateRoom />} />
+          <Route path='/rooms' element={<Rooms />} />
+          <Route path='/rooms/all/:id' element={<Room />} />
         </Routes>
       </Router>
     </div>
