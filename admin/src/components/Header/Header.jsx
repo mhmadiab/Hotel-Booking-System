@@ -20,11 +20,14 @@ const Header = () => {
           </Link>
           <nav>
             <Link to="/">Home</Link>
+            <Link to="/rooms">Rooms</Link>
             {user ? <>
+              
               <Link to="/rooms/create">Create</Link>
               <button onClick={handleLogout}>Logout</button>
             </> : 
             <>
+              
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>
             </>}
