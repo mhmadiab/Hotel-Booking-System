@@ -111,9 +111,9 @@ const CreateRoom = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="desc">Description</label>
+            <label htmlFor="description">Description</label>
             <textarea
-              name="desc"
+              name="description"
               onChange={handleChange}
               value={description}
             ></textarea>

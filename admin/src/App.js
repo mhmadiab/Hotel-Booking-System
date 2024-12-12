@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard/Dashboard.js'
 import CreateRoom from './pages/CreateRoom.js'
 import Rooms from './pages/Rooms/Rooms.js'
 import Room from './pages/Room/Room.jsx'
+import RoomEdit from './pages/RoomEdit/RoomEdit.jsx'
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/rooms/create' element={<CreateRoom />} />
           <Route path='/rooms' element={<Rooms />} />
           <Route path='/rooms/all/:id' element={<Room />} />
+          <Route path='/rooms/edit/:id' element={<RoomEdit />} />
         </Routes>
       </Router>
     </div>

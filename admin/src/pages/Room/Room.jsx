@@ -1,15 +1,28 @@
 import React, {useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import './room.styles.scss'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Carousel from '../../components/Carousel/Carousel'
+import { deleteRoom, reset } from '../../features/room/roomSlice'
+
 const Room = () => {
 
     const {id} = useParams()
     const [room , setRoom] = useState(null)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
+    const {isSuccess} = useSelector((state)=> state.room)
     const {user} = useSelector((state)=> state.auth)
+
+    useEffect(()=>{
+       if(isSuccess){
+        dispatch(reset()) 
+        navigate("/rooms")
+                
+       }
+    },[isSuccess, dispatch, navigate])
 
     useEffect(()=>{
        const getRoom =  async()=>{
@@ -26,8 +39,8 @@ const Room = () => {
        getRoom()
     }, [])
 
-    const handleDelete = ()=>{
-
+    const handleDelete = (id)=>{
+      dispatch(deleteRoom(id))
     }
 
     // console.log(room)
@@ -47,10 +60,10 @@ const Room = () => {
             <h2> ${room.price.toFixed(2)} </h2>
           </div>
 
-          {user && user.isAdmin ? (
+          {user && !user.isAdmin ? (
             <div className="cta-wrapper">
-              <Link to={`/edit/rooms/${room._id}`}>Edit Room</Link>
-              <button onClick={handleDelete}>Delete Room</button>
+              <Link to={`/rooms/edit/${room._id}`}>Edit Room</Link>
+              <button onClick={()=>handleDelete(id)}>Delete Room</button>
             </div>
           ) : null}
         </div>
