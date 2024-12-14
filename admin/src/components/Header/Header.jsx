@@ -15,14 +15,14 @@ const Header = () => {
   return (
       <header className='main-header'>
         <div className="container">
-          <Link>
+          <Link to="/">
             <h1 className="logo">Lavita Hotel</h1>
           </Link>
           <nav>
-            <Link to="/">Home</Link>
+            
             <Link to="/rooms">Rooms</Link>
             {user ? <>
-              
+              <Link to="/dashboard">Dashboard</Link>
               <Link to="/rooms/create">Create</Link>
               <button onClick={handleLogout}>Logout</button>
             </> : 
