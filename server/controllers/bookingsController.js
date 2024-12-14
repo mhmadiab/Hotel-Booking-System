@@ -5,7 +5,7 @@ const {Booking} = require("../models/index")
 
 const getBookings = async(req, res, next) => {
     try {
-        const bookings = await Booking.find()
+        const bookings = await Booking.find().populate("roomId")
         if(!bookings){
             res.status(404).json({message : "no bookings yet"})
         }
@@ -59,7 +59,7 @@ const deleteBooking = async(req, res, next)=>{
 
 const singleBooking = async(req, res, next)=>{
     try {
-        const booking = await Booking.findById(req.params.id)
+        const booking = await Booking.findById(req.params.id).populate("roomId")
         if(!booking){
             res.status(404)
             throw new Error("booking not found")

@@ -11,6 +11,7 @@ import CreateRoom from './pages/CreateRoom.js'
 import Rooms from './pages/Rooms/Rooms.js'
 import Room from './pages/Room/Room.jsx'
 import RoomEdit from './pages/RoomEdit/RoomEdit.jsx'
+import Booking from './pages/Booking/Booking.jsx'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/rooms' element={<Rooms />} />
           <Route path='/rooms/all/:id' element={<Room />} />
           <Route path='/rooms/edit/:id' element={<RoomEdit />} />
+          <Route path='/bookings/:id' element={<Booking />} />
         </Routes>
       </Router>
     </div>
